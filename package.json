@@ -1,0 +1,26 @@
+{
+  "name": "rdfoo-prov",
+  "version": "0.1.0",
+  "description": "Object oriented RDF abstraction for PROV-O",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "bash test.sh",
+    "prepare": "tsc -d -p ./ --outDir dist/",
+    "prepublishOnly": "tsc -d -p ./ --outDir dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/udp/rdfoo-prov.git"
+  },
+  "author": "James Alastair McLaughlin",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/udp/rdfoo-prov/issues"
+  },
+  "homepage": "https://github.com/udp/rdfoo-prov#readme",
+  "dependencies": {
+    "bioterms": "git+https://github.com/udp/bioterms.git",
+    "rdfoo": "git+https://github.com/udp/rdfoo.git"
+  }
+}
