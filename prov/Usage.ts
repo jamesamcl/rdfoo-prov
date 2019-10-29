@@ -1,12 +1,14 @@
 
-import { Graph, Facade } from "rdfoo";
 import { Types, Predicates } from "bioterms";
+import ProvView from './ProvView'
+import ProvFacade from './ProvFacade'
+import { Facade } from 'rdfoo'
 
-export default class Usage extends Facade {
+export default class Usage extends ProvFacade {
 
-    constructor(graph:Graph, uri:string) {
+    constructor(view:ProvView, uri:string) {
 
-        super(graph, uri)
+        super(view, uri)
 
     }
 
@@ -14,11 +16,11 @@ export default class Usage extends Facade {
         return Types.Prov.Usage
     }
 
-    get entity():Facade|undefined{
+    get entity():Facade|undefined {
         let entity = this.getUriProperty(Predicates.Prov.entity)
         if(entity === undefined)
             return undefined
-        return this._graph.uriToFacade(entity)
+        return this.view.uriToFacade(entity)
 
     }
 

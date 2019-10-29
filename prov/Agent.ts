@@ -1,12 +1,14 @@
 
-import { Graph, Facade } from "rdfoo";
+import { GraphView } from "rdfoo";
 import { Types, Predicates } from "bioterms";
+import ProvView from './ProvView'
+import ProvFacade from './ProvFacade'
 
-export default class Agent extends Facade {
+export default class Agent extends ProvFacade {
 
-    constructor(graph:Graph, uri:string) {
+    constructor(view:ProvView, uri:string) {
 
-        super(graph, uri)
+        super(view, uri)
 
     }
 

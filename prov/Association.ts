@@ -1,15 +1,17 @@
 
 
-import { Graph, Facade } from 'rdfoo'
+import { GraphView } from 'rdfoo'
 import Agent from "./Agent";
 import Plan from "./Plan";
 import { Types, Predicates } from "bioterms";
+import ProvView from './ProvView'
+import ProvFacade from './ProvFacade'
 
-export default class Association extends Facade {
+export default class Association extends ProvFacade {
 
-    constructor(graph:Graph, uri:string) {
+    constructor(view:ProvView, uri:string) {
 
-        super(graph, uri)
+        super(view, uri)
 
     }
 
@@ -25,7 +27,7 @@ export default class Association extends Facade {
             return undefined
         }
 
-        return new Agent(this._graph, agent)
+        return new Agent(this.view, agent)
     }
 
     set agent(agent:Agent|undefined) {
@@ -45,7 +47,7 @@ export default class Association extends Facade {
             return undefined
         }
 
-        return new Plan(this._graph, plan)
+        return new Plan(this.view, plan)
     }
 
     set plan(plan:Plan|undefined) {

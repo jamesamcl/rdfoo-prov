@@ -3,13 +3,15 @@ import Association from "./Association";
 import { Types, Predicates } from "bioterms";
 import Plan from "./Plan";
 import Usage from "./Usage";
-import { node, Facade, Graph } from 'rdfoo'
+import { node } from 'rdfoo'
+import ProvView from './ProvView'
+import ProvFacade from './ProvFacade'
 
-export default class Activity extends Facade {
+export default class Activity extends ProvFacade {
 
-    constructor(graph:Graph, uri:string) {
+    constructor(view:ProvView, uri:string) {
 
-        super(graph, uri)
+        super(view, uri)
 
     }
 
@@ -20,7 +22,7 @@ export default class Activity extends Facade {
     get associations():Array<Association> {
 
         return this.getUriProperties(Predicates.Prov.qualifiedAssociation)
-                    .map((uri) => new Association(this._graph, uri))
+                    .map((uri) => new Association(this.view, uri))
 
     }
 
@@ -32,7 +34,7 @@ export default class Activity extends Facade {
             return undefined
         }
 
-        return new Plan(this._graph, plan)
+        return new Plan(this.view, plan)
     }
 
     set plan(plan:Plan|undefined) {
@@ -52,7 +54,7 @@ export default class Activity extends Facade {
             return undefined
         }
 
-        return new Usage(this._graph, usage)
+        return new Usage(this.view, usage)
     }
 
     set usage(usage:Usage|undefined) {
@@ -72,7 +74,7 @@ export default class Activity extends Facade {
             return undefined
         }
 
-        return new Association(this._graph, association)
+        return new Association(this.view, association)
     }
 
     set association(association:Association|undefined) {

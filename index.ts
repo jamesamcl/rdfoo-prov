@@ -3,7 +3,7 @@ import Activity from './prov/Activity'
 import Agent from './prov/Agent'
 import Association from './prov/Association'
 import Plan from './prov/Plan'
-import Prov from './prov/Prov'
+import ProvView from './prov/ProvView'
 import Usage from './prov/Usage'
 
 export {
@@ -11,6 +11,6 @@ export {
     Agent,
     Association,
     Plan,
-    Prov,
+    ProvView,
     Usage
 }
