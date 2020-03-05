@@ -1,13 +1,12 @@
 {
   "name": "rdfoo-prov",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Object oriented RDF abstraction for PROV-O",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "bash test.sh",
-    "prepare": "tsc -d -p ./ --outDir dist/",
-    "prepublishOnly": "tsc -d -p ./ --outDir dist/"
+    "prepack": "tsc -d -p ./ --outDir dist/"
   },
   "repository": {
     "type": "git",
