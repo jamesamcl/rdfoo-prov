@@ -21,6 +21,6 @@
   "dependencies": {
     "@types/node": "^13.7.0",
     "bioterms": "^0.13.0",
-    "rdfoo": "0.7.0"
+    "rdfoo": "^0.9.0"
   }
 }
