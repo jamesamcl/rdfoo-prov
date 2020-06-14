@@ -20,7 +20,7 @@
   "homepage": "https://github.com/udp/rdfoo-prov#readme",
   "dependencies": {
     "@types/node": "^13.7.0",
-    "bioterms": "git+https://github.com/udp/bioterms.git",
-    "rdfoo": "git+https://github.com/udp/rdfoo.git"
+    "bioterms": "^0.13.0",
+    "rdfoo": "0.7.0"
   }
 }
