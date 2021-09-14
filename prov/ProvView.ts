@@ -1,5 +1,5 @@
 
-import { GraphViewBasic, Facade } from 'rdfoo'
+import { GraphViewBasic, Facade, Node } from 'rdfoo'
 import { Types } from 'bioterms'
 import Activity from './Activity'
 import Usage from './Usage'
@@ -9,25 +9,25 @@ import Association from './Association'
 
 export default class ProvView extends GraphViewBasic {
 
-    uriToFacade(uri: string):Facade|undefined {
+    subjectToFacade(subject:Node):Facade|undefined {
 
-        let types = this.getTypes(uri)
+        let types = this.getTypes(subject)
 
         for (let type of types) {
             if (type === Types.Prov.Activity) {
-                return new Activity(this, uri)
+                return new Activity(this, subject)
             }
             if (type === Types.Prov.Agent) {
-                return new Agent(this, uri)
+                return new Agent(this, subject)
             }
             if (type === Types.Prov.Association) {
-                return new Association(this, uri)
+                return new Association(this, subject)
             }
             if (type === Types.Prov.Plan) {
-                return new Plan(this, uri)
+                return new Plan(this, subject)
             }
             if (type === Types.Prov.Usage) {
-                return new Usage(this, uri)
+                return new Usage(this, subject)
             }
         }
 

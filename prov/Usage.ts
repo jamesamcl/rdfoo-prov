@@ -2,11 +2,11 @@
 import { Types, Predicates } from "bioterms";
 import ProvView from './ProvView'
 import ProvFacade from './ProvFacade'
-import { Facade } from 'rdfoo'
+import { Facade, Node } from 'rdfoo'
 
 export default class Usage extends ProvFacade {
 
-    constructor(view:ProvView, uri:string) {
+    constructor(view:ProvView, uri:Node) {
 
         super(view, uri)
 
@@ -17,10 +17,10 @@ export default class Usage extends ProvFacade {
     }
 
     get entity():Facade|undefined {
-        let entity = this.getUriProperty(Predicates.Prov.entity)
+        let entity = this.getProperty(Predicates.Prov.entity)
         if(entity === undefined)
             return undefined
-        return this.view.uriToFacade(entity)
+        return this.view.subjectToFacade(entity)
 
     }
 
@@ -29,7 +29,7 @@ export default class Usage extends ProvFacade {
         if(entity === undefined){
             this.deleteProperty(Predicates.Prov.entity)
         } else{
-            this.setUriProperty(Predicates.Prov.entity, entity.uri)
+            this.setProperty(Predicates.Prov.entity, entity.subject)
         }
 
     }

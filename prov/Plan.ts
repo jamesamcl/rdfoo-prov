@@ -1,12 +1,12 @@
 
-import { Facade } from 'rdfoo'
+import { Facade, Node } from 'rdfoo'
 import { Types } from "bioterms";
 import ProvView from './ProvView'
 import ProvFacade from './ProvFacade'
 
 export default class Plan extends ProvFacade {
 
-    constructor(view:ProvView, uri:string) {
+    constructor(view:ProvView, uri:Node) {
 
         super(view, uri)
 

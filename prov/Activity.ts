@@ -3,13 +3,13 @@ import Association from "./Association";
 import { Types, Predicates } from "bioterms";
 import Plan from "./Plan";
 import Usage from "./Usage";
-import { node } from 'rdfoo'
+import { node, Node } from 'rdfoo'
 import ProvView from './ProvView'
 import ProvFacade from './ProvFacade'
 
 export default class Activity extends ProvFacade {
 
-    constructor(view:ProvView, uri:string) {
+    constructor(view:ProvView, uri:Node) {
 
         super(view, uri)
 
@@ -21,14 +21,14 @@ export default class Activity extends ProvFacade {
 
     get associations():Array<Association> {
 
-        return this.getUriProperties(Predicates.Prov.qualifiedAssociation)
+        return this.getProperties(Predicates.Prov.qualifiedAssociation)
                     .map((uri) => new Association(this.view, uri))
 
     }
 
     get plan():Plan|undefined {
 
-        let plan = this.getUriProperty(Predicates.Prov.hadPlan)
+        let plan = this.getProperty(Predicates.Prov.hadPlan)
 
         if(!plan) {
             return undefined
@@ -42,13 +42,13 @@ export default class Activity extends ProvFacade {
         if(plan === undefined) {
             this.deleteProperty(Predicates.Prov.hadPlan)
         } else {
-            this.setUriProperty(Predicates.Prov.hadPlan, plan.uri)
+            this.setProperty(Predicates.Prov.hadPlan, plan.subject)
         }
     }
 
     get usage():Usage|undefined {
 
-        let usage = this.getUriProperty(Predicates.Prov.qualifiedUsage)
+        let usage = this.getProperty(Predicates.Prov.qualifiedUsage)
 
         if(!usage) {
             return undefined
@@ -62,13 +62,13 @@ export default class Activity extends ProvFacade {
         if(usage === undefined) {
             this.deleteProperty(Predicates.Prov.qualifiedUsage)
         } else {
-            this.setUriProperty(Predicates.Prov.qualifiedUsage, usage.uri)
+            this.setProperty(Predicates.Prov.qualifiedUsage, usage.subject)
         }
     }
 
     get association():Association|undefined {
 
-        let association = this.getUriProperty(Predicates.Prov.qualifiedAssociation)
+        let association = this.getProperty(Predicates.Prov.qualifiedAssociation)
 
         if(!association) {
             return undefined
@@ -82,7 +82,7 @@ export default class Activity extends ProvFacade {
         if(association === undefined) {
             this.deleteProperty(Predicates.Prov.qualifiedAssociation)
         } else {
-            this.setUriProperty(Predicates.Prov.qualifiedAssociation, association.uri)
+            this.setProperty(Predicates.Prov.qualifiedAssociation, association.subject)
         }
     }
 

@@ -1,6 +1,6 @@
 
 
-import { GraphView } from 'rdfoo'
+import { GraphView, Node } from 'rdfoo'
 import Agent from "./Agent";
 import Plan from "./Plan";
 import { Types, Predicates } from "bioterms";
@@ -9,7 +9,7 @@ import ProvFacade from './ProvFacade'
 
 export default class Association extends ProvFacade {
 
-    constructor(view:ProvView, uri:string) {
+    constructor(view:ProvView, uri:Node) {
 
         super(view, uri)
 
@@ -21,7 +21,7 @@ export default class Association extends ProvFacade {
 
     get agent():Agent|undefined {
 
-        let agent = this.getUriProperty(Predicates.Prov.agent)
+        let agent = this.getProperty(Predicates.Prov.agent)
 
         if(!agent) {
             return undefined
@@ -35,13 +35,13 @@ export default class Association extends ProvFacade {
         if(agent === undefined) {
             this.deleteProperty(Predicates.Prov.agent)
         } else {
-            this.setUriProperty(Predicates.Prov.agent, agent.uri)
+            this.setProperty(Predicates.Prov.agent, agent.subject)
         }
     }
 
     get plan():Plan|undefined {
 
-        let plan = this.getUriProperty(Predicates.Prov.hadPlan)
+        let plan = this.getProperty(Predicates.Prov.hadPlan)
 
         if(!plan) {
             return undefined
@@ -55,7 +55,7 @@ export default class Association extends ProvFacade {
         if(plan === undefined) {
             this.deleteProperty(Predicates.Prov.hadPlan)
         } else {
-            this.setUriProperty(Predicates.Prov.hadPlan, plan.uri)
+            this.setProperty(Predicates.Prov.hadPlan, plan.subject)
         }
     }
 
