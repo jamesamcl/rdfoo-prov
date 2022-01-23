@@ -1,6 +1,6 @@
 {
   "name": "rdfoo-prov",
-  "version": "0.11.0",
+  "version": "0.13.0",
   "description": "Object oriented RDF abstraction for PROV-O",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,8 +20,8 @@
   "homepage": "https://github.com/udp/rdfoo-prov#readme",
   "dependencies": {
     "@types/node": "^13.7.0",
-    "bioterms": "^0.20.0",
-    "rdfoo": "^0.12.0"
+    "bioterms": "^0.25.0",
+    "rdfoo": "^0.15.0"
   },
   "devDependencies": {
     "typescript": "^3.9.7"
