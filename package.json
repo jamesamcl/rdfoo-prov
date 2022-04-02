@@ -1,12 +1,11 @@
 {
   "name": "rdfoo-prov",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "description": "Object oriented RDF abstraction for PROV-O",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "bash test.sh",
-    "prepare": "tsc -d -p ./ --outDir dist/"
+    "test": "bash test.sh"
   },
   "repository": {
     "type": "git",
@@ -20,8 +19,8 @@
   "homepage": "https://github.com/udp/rdfoo-prov#readme",
   "dependencies": {
     "@types/node": "^13.7.0",
-    "bioterms": "^0.25.0",
-    "rdfoo": "^0.15.0"
+    "bioterms": "^0.30.0",
+    "rdfoo": "^0.16.0"
   },
   "devDependencies": {
     "typescript": "^3.9.7"
