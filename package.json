@@ -20,7 +20,7 @@
   "dependencies": {
     "@types/node": "^13.7.0",
     "bioterms": "^0.30.0",
-    "rdfoo": "^0.16.0"
+    "rdfoo": "=0.17.0"
   },
   "devDependencies": {
     "typescript": "^3.9.7"
