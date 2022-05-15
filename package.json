@@ -1,6 +1,6 @@
 {
   "name": "rdfoo-prov",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "Object oriented RDF abstraction for PROV-O",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
